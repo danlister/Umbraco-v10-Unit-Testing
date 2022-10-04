@@ -21,7 +21,7 @@ namespace Umbraco10Testing.Tests
         public void SetupPropertyValue(Mock<IPublishedContent> content, string propertyAlias, string propertyValue, string culture = null)
         {
             var property = new Mock<IPublishedProperty>();
-            property.Setup(x => x.Alias).Returns(nameof(PageViewModel.Heading));
+            property.Setup(x => x.Alias).Returns(propertyAlias);
             property.Setup(x => x.GetValue(culture, null)).Returns(propertyValue);
             content.Setup(x => x.GetProperty(propertyAlias)).Returns(property.Object);
         }
